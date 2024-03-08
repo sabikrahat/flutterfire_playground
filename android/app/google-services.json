@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21924730097",
+    "project_id": "flutterfire-sabikrahat",
+    "storage_bucket": "flutterfire-sabikrahat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21924730097:android:c703aaa9e66b241faf0550",
+        "android_client_info": {
+          "package_name": "com.sabikrahat.flutterfire_playground"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqAf_xpRpnJ4_ZDQQGJReyCD8sST_c5-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

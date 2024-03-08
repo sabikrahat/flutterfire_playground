@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyB_97l0Qb79OnF8oAppRLjR6O64Fo3Lh8o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>21924730097</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sabikrahat.flutterfirePlayground</string>
+	<key>PROJECT_ID</key>
+	<string>flutterfire-sabikrahat</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutterfire-sabikrahat.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:21924730097:ios:bf10b3c8b9fae4a5af0550</string>
+</dict>
+</plist>
