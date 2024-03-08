@@ -6,13 +6,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutterfire_playground/pages/signin/signin.dart';
 
 import 'firebase/constant.dart';
+import 'firebase/fcm.dart';
 import 'firebase/firebase_options.dart';
 import 'pages/home/home.dart';
+import 'pages/notification/notification.dart';
 import 'pages/profile/profile.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await FCMApi().initNotifications();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -26,7 +31,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
       ),
+      navigatorKey: navigatorKey,
       home: const AuthRouter(),
+      routes: {
+        NotificationView.route: (_) => const NotificationView(),
+      },
     );
   }
 }
