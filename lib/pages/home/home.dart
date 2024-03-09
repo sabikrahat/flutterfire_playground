@@ -54,7 +54,7 @@ class _FloatingButtonState extends State<_FloatingButton> {
     return FloatingActionButton.small(
       onPressed: () async {
         setState(() => isLoading = true);
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 500; i++) {
           final uid =
               (DateTime.now().microsecondsSinceEpoch + Random().nextInt(99999))
                   .toString();
@@ -68,6 +68,7 @@ class _FloatingButtonState extends State<_FloatingButton> {
                       FirebaseAuth.instance.currentUser?.uid ?? 'undefined!',
                 ).toJson(),
               );
+          debugPrint('Post $i created');
         }
         setState(() => isLoading = false);
       },

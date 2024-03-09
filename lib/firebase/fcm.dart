@@ -10,9 +10,7 @@ import '../pages/notification/notification.dart';
 class FCMApi {
   final _firebaseMessaging = FirebaseMessaging.instance;
 
-  Future<String?> getDeviceToken() async {
-    return await _firebaseMessaging.getToken();
-  }
+  Future<String?> getDeviceToken() async => await _firebaseMessaging.getToken();
 
   final _androidChannel = const AndroidNotificationChannel(
     'high_importance_channel',
@@ -33,22 +31,22 @@ class FCMApi {
 
   Future initLocalNotifications() async {
     const android = AndroidInitializationSettings('@mipmap/ic_launcher');
-    const ios = DarwinInitializationSettings();
-    const macos = DarwinInitializationSettings();
-    const linux = LinuxInitializationSettings(
-        defaultActionName: 'flutterfire_playground');
-    const settings = InitializationSettings(
-        android: android, iOS: ios, linux: linux, macOS: macos);
+    // const ios = DarwinInitializationSettings();
+    // const macos = DarwinInitializationSettings();
+    // const linux = LinuxInitializationSettings(defaultActionName: 'flutterfire_playground');
+    // const settings = InitializationSettings(android: android, iOS: ios, linux: linux, macOS: macos);
+    const settings = InitializationSettings(android: android);
 
     await _localNotifications.initialize(settings,
-        onDidReceiveNotificationResponse: (NotificationResponse nr) {
-      final message = RemoteMessage.fromMap(jsonDecode(nr.payload!));
+        onDidReceiveNotificationResponse: (response) {
+      final message = RemoteMessage.fromMap(jsonDecode(response.payload!));
       handleMessage(message);
     });
 
-    final androidPlatform = _localNotifications.resolvePlatformSpecificImplementation<
-        AndroidFlutterLocalNotificationsPlugin>();
-    
+    final androidPlatform =
+        _localNotifications.resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>();
+
     // final iosPlatform = _localNotifications.resolvePlatformSpecificImplementation<
     //     IOSFlutterLocalNotificationsPlugin>();
 
@@ -57,12 +55,11 @@ class FCMApi {
 
     // final linuxPlatform = _localNotifications.resolvePlatformSpecificImplementation<
     //     LinuxFlutterLocalNotificationsPlugin>();
-    
+
     await androidPlatform?.createNotificationChannel(_androidChannel);
     // await iosPlatform?.requestPermissions();
     // await macosPlatform?.requestPermissions();
     // await linuxPlatform?.getActiveNotifications();
-
   }
 
   Future initPushNotification() async {
